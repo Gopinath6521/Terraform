@@ -54,13 +54,13 @@ resource "aws_route_table_association" "pub_rt_associate" {
   subnet_id = aws_subnet.test_vpc_pub_subnet.id
 }
 
-resource "aws_eip" "lb" {
+resource "aws_eip" "new_vpc_eip" {
   domain   = "vpc"
 }
 
 data "aws_nat_gateway" "test_vpc_ng" {
   subnet_id = aws_subnet.test_vpc_pub_subnet.id
-  allocation_id = aws_eip.lb.id
+  allocation_id = aws_eip.new_vpc_eip.id
 
     tags = {
     Name = "gw NAT"
