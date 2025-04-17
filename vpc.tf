@@ -49,6 +49,11 @@ resource "aws_route_table" "test_vpc_route_table" {
   }
 }
 
-resource "aws_route_table_association" "rt_associate" {
+resource "aws_route_table_association" "pub_rt_associate" {
+  route_table_id = aws_route_table.test_vpc_route_table.id
+  subnet_id = aws_subnet.test_vpc_pub_subnet.id
+}
+
+resource "aws_eip" "vpc_eip" {
   
 }
