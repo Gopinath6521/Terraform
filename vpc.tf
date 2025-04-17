@@ -49,3 +49,6 @@ resource "aws_route_table" "test_vpc_route_table" {
   }
 }
 
+resource "aws_route_table_association" "rt_associate" {
+  
+}
