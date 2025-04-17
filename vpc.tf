@@ -88,7 +88,7 @@ resource "aws_security_group" "my_vpc_sg" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic and all outbound traffic"
   #vpc_id      = aws_vpc.test_vpc.id
-  vpc_id      = vpc-07489a1f049c9f424
+  vpc_id      = "vpc-07489a1f049c9f424"
 
   ingress {
      description = "Test VPC Egress"
@@ -114,7 +114,7 @@ resource "aws_security_group" "my_vpc_sg" {
 resource "aws_instance" "public_instance" {
   ami = "ami-002f6e91abff6eb96"
   instance_type = "t2.micro"
-  subnet_id = subnet-035ff93ad689e54cd  #aws_subnet.test_vpc_pub_subnet.id
+  subnet_id = "subnet-035ff93ad689e54cd"  #aws_subnet.test_vpc_pub_subnet.id
   key_name = "terraform"
   associate_public_ip_address = true
   vpc_security_group_ids = ["${aws_security_group.my_vpc_sg.id}"]
