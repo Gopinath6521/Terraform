@@ -109,3 +109,13 @@ resource "aws_security_group" "my_vpc_sg" {
     Name = "allow_tls"
   }
 }
+
+resource "aws_instance" "public_instance" {
+  ami = "ami-002f6e91abff6eb96"
+  instance_type = t2.micro
+  subnet_id = aws_subnet.test_vpc_pub_subnet.id
+  key_name = "terraform"
+  associate_public_ip_address = true
+  vpc_security_group_ids = ["${aws_security_group.my_vpc_sg.id}"]
+}
+
