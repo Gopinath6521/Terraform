@@ -105,7 +105,7 @@ resource "aws_security_group" "my_vpc_sg" {
   #   cidr_blocks = ["0.0.0.0/0"]
   #   ipv6_cidr_blocks = ["::/0"]
   # }
-a
+
   tags = {
     Name = "allow_tls"
   }
