@@ -19,3 +19,12 @@ resource "aws_subnet" "test_vpc_pub_subnet" {
     Name = "vpc_pub_sub_tag"
   }
 }
+
+resource "aws_subnet" "test_vpc_pvt_subnet" {
+  vpc_id = aws_vpc.test_vpc.id
+  cidr_block = "10.0.2.0/24"
+
+  tags = {
+    Name = "vpc_pvt_sub_tag"
+  }
+}
