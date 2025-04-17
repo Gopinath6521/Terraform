@@ -28,3 +28,15 @@ resource "aws_subnet" "test_vpc_pvt_subnet" {
     Name = "vpc_pvt_sub_tag"
   }
 }
+
+resource "aws_internet_gateway" "test_vpc_ig" {
+  vpc_id = aws_vpc.test_vpc.id
+
+  tags = {
+    Name = "vpc_ig"
+  }
+}
+
+resource "aws_route_table" "test_vpc_route_table" {
+  
+}
