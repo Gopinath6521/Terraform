@@ -60,7 +60,7 @@ resource "aws_eip" "new_vpc_eip" {
 
 data "aws_nat_gateway" "test_vpc_ng" {
   subnet_id = aws_subnet.test_vpc_pub_subnet.id
-  #allocation_id = aws_eip.new_vpc_eip.id
+  allocation_id = aws_eip.new_vpc_eip.id
 
     tags = {
     Name = "gw NAT"
@@ -71,7 +71,7 @@ resource "aws_route_table" "test_vpc_pvt_route_table" {
   vpc_id = aws_vpc.test_vpc.id
   route {
    cidr_block = "0.0.0.0/0"
-   gateway_id = aws_nat_gateway.test_vpc_ng.id
+   nat_gateway_id = aws_nat_gateway.test_vpc_ng.id
   }
 
   tags = {
