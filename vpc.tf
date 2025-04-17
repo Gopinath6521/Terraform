@@ -45,7 +45,7 @@ resource "aws_route_table" "test_vpc_pub_route_table" {
   }
 
   tags = {
-    Name: vpc_rt_public
+    Name: "vpc_rt_public"
   }
 }
 
@@ -60,7 +60,7 @@ resource "aws_eip" "lb" {
 
 data "aws_nat_gateway" "test_vpc_ng" {
   subnet_id = aws_subnet.test_vpc_pub_subnet.id
-  allocation_id = aws_eip.lb.id
+  allocation_id = aws_eip.test_vpc_ng.id
 
     tags = {
     Name = "gw NAT"
@@ -75,7 +75,7 @@ resource "aws_route_table" "test_vpc_pvt_route_table" {
   }
 
   tags = {
-    Name: vpc_rt_public
+    Name: "vpc_rt_public"
   }
 }
 
@@ -97,13 +97,13 @@ resource "aws_security_group" "my_vpc_sg" {
      cidr_blocks = ["0.0.0.0/0"]
   }
   
-  egress = {
-    from_port = 0
-    to_port = 0
-    protocol = -1
-    cidr_blocks = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
+  # egress = {
+  #   from_port = 0
+  #   to_port = 0
+  #   protocol = -1
+  #   cidr_blocks = ["0.0.0.0/0"]
+  #   ipv6_cidr_blocks = ["::/0"]
+  # }
 
   tags = {
     Name = "allow_tls"
