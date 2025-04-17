@@ -97,7 +97,7 @@ resource "aws_security_group" "my_vpc_sg" {
      protocol = "tcp"
      cidr_blocks = ["0.0.0.0/0"]
   }
-  
+  a
   # egress = {
   #   from_port = 0
   #   to_port = 0
