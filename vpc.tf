@@ -60,7 +60,7 @@ resource "aws_eip" "lb" {
 
 data "aws_nat_gateway" "test_vpc_ng" {
   subnet_id = aws_subnet.test_vpc_pub_subnet.id
-  allocation_id = aws_eip.test_vpc_ng.id
+  allocation_id = aws_eip.lb.id
 
     tags = {
     Name = "gw NAT"
