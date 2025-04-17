@@ -38,5 +38,14 @@ resource "aws_internet_gateway" "test_vpc_ig" {
 }
 
 resource "aws_route_table" "test_vpc_route_table" {
-  
+  vpc_id = aws_vpc.test_vpc.id
+  route {
+   cidr_block = "0.0.0.0/0"
+   gateway_id = aws_internet_gateway.test_vpc_ig.id
+  }
+
+  tags = {
+    Name: vpc_rt_public
+  }
 }
+
