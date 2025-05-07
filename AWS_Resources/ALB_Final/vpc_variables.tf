@@ -70,8 +70,3 @@ variable "vpc_single_nat_gateway" {
   type = bool
   default = true
 }
-
-
-
-
-

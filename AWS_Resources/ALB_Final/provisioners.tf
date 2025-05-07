@@ -49,19 +49,19 @@ resource "null_resource" "name" {
 #     allocation_id = aws_eip.bastion_eip.id
 #   }
 
-  provisioner "local-exec" {
-    command = "VPC ID=${module.vpc.vpc_id} && echo $VPC_ID >> create_vpc.txt"
-    working_dir = "local-exec-output-files/"
-    when = create
-    on_failure = continue
-  }
+  # provisioner "local-exec" {
+  #   command = "VPC ID=${module.vpc.vpc_id} && echo $VPC_ID >> create_vpc.txt"
+  #   working_dir = "local-exec-output-files/"
+  #   when = create
+  #   on_failure = continue
+  # }
   
-  provisioner "local-exec" {
-    command = "Executed during destruction. >> destroy__exec.txt"
-    working_dir = "local-exec-output-files/"
-    # when = destroy
-    on_failure = continue   
-  }
+  # provisioner "local-exec" {
+  #   command = "Executed during destruction. >> destroy__exec.txt"
+  #   working_dir = "local-exec-output-files/"
+  #   # when = destroy
+  #   on_failure = continue   
+  # }
 
 # Fle Provisioner
 
