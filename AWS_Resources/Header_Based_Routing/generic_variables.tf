@@ -17,3 +17,4 @@ variable "business_divsion" {
   type = string
   default = "sap"
 }
+ 

@@ -25,5 +25,3 @@ module "loadbalancer_sg" {
     },
   ]
 }
-
-
